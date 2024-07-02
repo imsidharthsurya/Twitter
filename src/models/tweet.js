@@ -1,5 +1,4 @@
 const mongoose=require("mongoose");
-
 const tweetSchema=new mongoose.Schema({
     content:{
         type:String,
@@ -7,7 +6,13 @@ const tweetSchema=new mongoose.Schema({
     },
     userEmail:{
         type:String
-    }
+    },
+    comments:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Comment'
+        }
+    ]
 },{timestamps:true})
 
 //create model ie. collection similar to table with the following schema
