@@ -54,5 +54,6 @@ app.listen(3000,async()=>{
     // console.log(tweet);
     // const tweet=await tweetRepo.get("6683d5f9b806e41892bacee4");
     // tweet.tweetdetails;
-    
+    const tweet=await tweetRepo.create({content:"trying middleware"});
+    console.log(tweet);
 })
