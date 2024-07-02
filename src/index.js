@@ -47,8 +47,12 @@ app.listen(3000,async()=>{
     // await tweet.save();
     // console.log("tweet after comment: ",tweet);
 
-    const tweet=await tweetRepo.getWithComments("6683dc728de0686da7f1c780");
-    console.log(tweet)
+    // const tweet=await tweetRepo.getWithComments("6683dc728de0686da7f1c780");
+    // console.log(tweet)
 
+    // const tweet=await tweetRepo.getAll(5,3);
+    // console.log(tweet);
+    // const tweet=await tweetRepo.get("6683d5f9b806e41892bacee4");
+    // tweet.tweetdetails;
     
 })

@@ -46,6 +46,15 @@ class TweetRepository{
             console.log("Error happened at repository layer: ",err);
         }
     }
+
+    async getAll(limit,offset){
+        try{
+            const tweet=await Tweet.find().limit(limit).skip(offset);
+            return tweet;
+        }catch(err){
+            console.log("Error happened at repository layer: ",err);
+        }
+    }
 }
 
 module.exports=TweetRepository
