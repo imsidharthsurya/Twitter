@@ -1,46 +1,16 @@
 const Tweet=require("../models/tweet");
+const CrudRepository=require("./crud-repository")
 
-class TweetRepository{
+class TweetRepository extends CrudRepository{
 
-    async create(data){
-        try{
-            const tweet=await Tweet.create(data);
-            return tweet;
-        }catch(err){
-            console.log("Error happened at repository layer: ",err);
-        }
-    }
-
-    async get(id){
-        try{
-            const tweet=await Tweet.findById(id);
-            return tweet;
-        }catch(err){
-            console.log("Error happened at repository layer: ",err);
-        }
+    constructor(){
+        super(Tweet);
+        //this will call constructor of crudRepo with tweet model.
     }
 
     async getWithComments(id){
         try{
             const tweet=await Tweet.findById(id).populate({path:'comments'});
-            return tweet;
-        }catch(err){
-            console.log("Error happened at repository layer: ",err);
-        }
-    }
-
-    async update(id,data){
-        try{
-            const tweet=await Tweet.findByIdAndUpdate(id,data,{new:true});
-            return tweet;
-        }catch(err){
-            console.log("Error happened at repository layer: ",err);
-        }
-    }
-
-    async delete(id){
-        try{
-            const tweet=await Tweet.findByIdAndDelete(id);
             return tweet;
         }catch(err){
             console.log("Error happened at repository layer: ",err);
