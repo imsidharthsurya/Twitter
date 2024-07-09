@@ -11,7 +11,7 @@ const likeSchema=new mongoose.Schema({
         ref:"User",
         required:true
     },
-    likeableId:{
+    modelId:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         refPath:"modelName"
@@ -21,4 +21,4 @@ const likeSchema=new mongoose.Schema({
 
 
 const Like=mongoose.model("Like",likeSchema);
-export default Like;
+module.exports= Like;
