@@ -65,6 +65,16 @@ class TweetService{
         
         return tweet;
     }
+
+    async getTweet(tweetId){
+        try{
+            const tweet=await this.tweetRepository.getWithComments(tweetId);
+            return tweet;
+        }catch(err){
+            console.log("error happenend in get a tweet service layer ",err);
+            throw err;
+        }
+    }
 }
 
 module.exports=TweetService;
