@@ -14,6 +14,14 @@ class UserService{
         }
     }
 
+    async getUserByEmail(email){
+        try{
+            const user=await this.userRepository.getUserBy({email})
+            return user;
+        }catch(err){
+            throw err;
+        }
+    }
 }
 
 module.exports=UserService

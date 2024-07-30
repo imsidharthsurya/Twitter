@@ -11,6 +11,7 @@ router.post("/likes",LikeController.toggleLike)
 router.post("/comment",CommentController.create);
 
 router.post("/signup",UserController.signup)
+router.post("/login",UserController.login)
 
 module.exports=router
 
