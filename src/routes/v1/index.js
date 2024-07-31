@@ -1,9 +1,9 @@
 const express=require("express");
 const {TweetController,LikeController,CommentController,UserController}=require("../../controllers/index")
-
+const {authenticate}=require("../../middlewares/authenticate")
 const router=express.Router();
 
-router.post("/tweet",TweetController.create);
+router.post("/tweet",authenticate,TweetController.create);
 router.post("/tweet/:id",TweetController.getTweet);
 
 router.post("/likes",LikeController.toggleLike)

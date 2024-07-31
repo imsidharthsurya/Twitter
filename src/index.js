@@ -1,8 +1,9 @@
 const express=require("express")
 
 const connect=require("./config/database")
-const ApiRoutes=require("./routes/index")
-
+const ApiRoutes=require("./routes/index");
+const passport = require("passport");
+const {passportAuth}=require("./config/jwt-middleware")
 // const UserRepository=require("./repository/user-repository")
 
 const app=express();
@@ -10,6 +11,9 @@ const app=express();
 app.use(express.json());
 
 app.use("/api",ApiRoutes)
+
+app.use(passport.initialize())
+passportAuth(passport)
 
 app.listen(3000,async()=>{
     console.log("server started on port 3000")
