@@ -8,7 +8,7 @@ router.post("/tweet/:id",TweetController.getTweet);
 
 router.post("/likes",LikeController.toggleLike)
 
-router.post("/comment",CommentController.create);
+router.post("/comment",authenticate,CommentController.create);
 
 router.post("/signup",UserController.signup)
 router.post("/login",UserController.login)
